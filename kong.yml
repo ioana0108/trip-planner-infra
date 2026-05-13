@@ -1,0 +1,29 @@
+_format_version: "3.0"
+
+services:
+  - name: auth-service
+    url: http://trip-planner_auth-service:8080
+    routes:
+      - name: auth-route
+        paths:
+          - /auth
+        strip_path: true
+
+  - name: trip-service
+    url: http://trip-planner_trip-service:8080
+    routes:
+      - name: trip-route
+        paths:
+          - /trips
+        strip_path: true
+
+  - name: itinerary-service
+    url: http://trip-planner_itinerary-service:8080
+    routes:
+      - name: itinerary-route
+        paths:
+          - /itinerary
+        strip_path: true
+
+plugins:
+  - name: prometheus
